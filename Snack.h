@@ -12,8 +12,6 @@ public:
 
 	Snack(std::string name, int calories = 0, double price = 0.0);
 	std::string getName() const;
-
 	int getCalories() const;
-
 	double getPrice() const;
 };

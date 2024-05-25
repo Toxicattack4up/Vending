@@ -3,12 +3,11 @@
 
 void Menu::displayMainMenu()
 {
-
 	std::cout << "На балансе сейчас: " << AccountBalance << std::endl;
 	std::cout << "Выберите нужную цифру: " << std::endl;
 	std::cout << "1. Пополнить баланс." << std::endl;
-	std::cout << "2. Купить вкусняшку." <<  std::endl;
-	std::cout << "Другие настройки..." << displayAdminMenu << std::endl;
+	std::cout << "2. Купить вкусняшку." << std::endl;
+	std::cout << "Другие настройки..." << std::endl;
 	std::cin >> choice;
 }
 
