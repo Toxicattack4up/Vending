@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Snack.cpp" />
+    <ClCompile Include="SnackSlot.cpp" />
+    <ClCompile Include="VendingMachine.cpp" />
     <ClCompile Include="Домашнее ООП.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Snack.h" />
+    <ClInclude Include="SnackSlot.h" />
+    <ClInclude Include="VendingMachine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
