@@ -9,6 +9,8 @@ private:
 
 public:
 	VendingMachine(int slotCount);
+
 	bool addSlot(SnackSlot* slot);
+
 	int getEmptySlotsCount() const;
 };

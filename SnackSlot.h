@@ -10,7 +10,10 @@ private:
 
 public:
 	SnackSlot(int capacity);
+
 	bool addSnack(Snack* snack);
+
 	bool isFull() const;
+
 	int getSnackCount() const;
 };
