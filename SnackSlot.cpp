@@ -2,22 +2,42 @@
 
 SnackSlot::SnackSlot(int capacity) : capacity(capacity) {}
 
-bool SnackSlot::addSnack(Snack* snack)
+void SnackSlot::addSnack(Snack* snack)
 {
 	if (snacks.size() < capacity)
 	{
 		snacks.push_back(snack);
-		return true;
 	}
-	return false;
 }
 
-bool SnackSlot::isFull() const
+std::string SnackSlot::getSnackName() const
 {
-	return snacks.size() >= capacity;
+	if (snacks.empty())
+	{
+		return "Пусто";
+	}
+	return snacks.back()->getName();
 }
 
-int SnackSlot::getSnackCount() const
+int SnackSlot::getSnackCalories() const
 {
-	return snacks.size();
+	if (snacks.empty())
+	{
+		return 0;
+	}
+	return snacks.back()->getCalories();
+}
+
+double SnackSlot::getSnackPrice() const
+{
+	if (snacks.empty())
+	{
+		return 0.0;
+	}
+	return snacks.back()->getPrice();
+}
+
+bool SnackSlot::isEmpty() const
+{
+	return snacks.empty();
 }

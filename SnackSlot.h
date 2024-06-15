@@ -11,9 +11,9 @@ private:
 public:
 	SnackSlot(int capacity);
 
-	bool addSnack(Snack* snack);
-
-	bool isFull() const;
-
-	int getSnackCount() const;
+	void addSnack(Snack* snack);
+	std::string getSnackName() const;
+	int getSnackCalories() const;
+	double getSnackPrice() const;
+	bool isEmpty() const;
 };
