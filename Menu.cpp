@@ -3,7 +3,6 @@
 
 void Menu::displayMainMenu()
 {
-
 	std::cout << "На балансе сейчас: " << AccountBalance << std::endl;
 	std::cout << "Выберите нужную цифру: " << std::endl;
 	std::cout << "1. Пополнить баланс." << std::endl;
@@ -57,5 +56,7 @@ void Menu::handleAdminMenuChoice(int choice)
 
 int Menu::TopUpBalance()
 {
+	std::cout << "Введите сумму пополнения: ";
+	std::cin >> AccountBalance;
 	return 0;
 }
