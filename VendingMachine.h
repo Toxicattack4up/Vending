@@ -5,12 +5,13 @@
 class VendingMachine
 {
 private:
-	std::vector<SnackSlot*> slots;
+	std::vector<std::vector<SnackSlot*>> slots;
 
 public:
-	VendingMachine(int slotCount);
+	VendingMachine(int row, int cols);
 
-	bool addSlot(SnackSlot* slot);
+	bool addSlot(int row, int cols, SnackSlot* slot);
 
 	int getEmptySlotsCount() const;
+	void display();
 };

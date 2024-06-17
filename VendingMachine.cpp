@@ -1,19 +1,22 @@
 #include "VendingMachine.h"
+#include <iostream>
 
-VendingMachine::VendingMachine(int slotCount)
+VendingMachine::VendingMachine(int row, int cols)
 {
-	slots.resize(slotCount, nullptr);
+	slots.resize(row, std::vector<SnackSlot*>(cols, nullptr));
 }
 
-bool VendingMachine::addSlot(SnackSlot* slot)
+bool VendingMachine::addSlot(int row, int cols, SnackSlot* slot)
 {
-	for (size_t i = 0; i < slots.size(); ++i)
+	if (row >= slots.size() || cols >= slots[0].size())
 	{
-		if (slots[i] == nullptr)
-		{
-			slots[i] = slot;
-			return true;
-		}
+		return false;
+	}
+
+	if (slots[row][cols] == nullptr)
+	{
+		slots[row][cols] = slot;
+		return true;
 	}
 	return false;
 }
@@ -21,12 +24,47 @@ bool VendingMachine::addSlot(SnackSlot* slot)
 int VendingMachine::getEmptySlotsCount() const
 {
 	int emptyCount = 0;
-	for (const auto& slot : slots)
+	for (const auto& row : slots)
 	{
-		if (slot == nullptr)
+		for (const auto& slot : row)
 		{
-			++emptyCount;
+			if (slot == nullptr)
+			{
+				++emptyCount;
+			}
 		}
 	}
 	return emptyCount;
+}
+
+void VendingMachine::display()
+{
+    for (const auto& row : slots)
+    {
+        for (const auto& slot : row)
+        {
+            if (slot != nullptr && !slot->isEmpty())
+            {
+                std::cout << slot->getSnackName() << "\t";
+            }
+            else
+            {
+                std::cout << "Empty\t";
+            }
+        }
+        std::cout << std::endl;
+
+        for (const auto& slot : row)
+        {
+            if (slot != nullptr && !slot->isEmpty())
+            {
+                std::cout << slot->getSnackPrice() << "\t";
+            }
+            else
+            {
+                std::cout << "\t";
+            }
+        }
+        std::cout << std::endl;
+    }
 }
