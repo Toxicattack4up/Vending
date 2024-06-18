@@ -12,6 +12,7 @@ public:
 	SnackSlot(int capacity);
 
 	void addSnack(Snack* snack);
+	void removeSnack();
 	std::string getSnackName() const;
 	int getSnackCalories() const;
 	double getSnackPrice() const;

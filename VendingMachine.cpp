@@ -1,21 +1,21 @@
 #include "VendingMachine.h"
 #include <iostream>
 
-VendingMachine::VendingMachine(int row, int cols)
+VendingMachine::VendingMachine(int row, int col)
 {
-	slots.resize(row, std::vector<SnackSlot*>(cols, nullptr));
+	slots.resize(row, std::vector<SnackSlot*>(col, nullptr));
 }
 
-bool VendingMachine::addSlot(int row, int cols, SnackSlot* slot)
+bool VendingMachine::addSlot(int row, int col, SnackSlot* slot)
 {
-	if (row >= slots.size() || cols >= slots[0].size())
+	if (row >= slots.size() || col >= slots[0].size())
 	{
 		return false;
 	}
 
-	if (slots[row][cols] == nullptr)
+	if (slots[row][col] == nullptr)
 	{
-		slots[row][cols] = slot;
+		slots[row][col] = slot;
 		return true;
 	}
 	return false;
@@ -67,4 +67,9 @@ void VendingMachine::display()
         }
         std::cout << std::endl;
     }
+}
+
+const std::vector<std::vector<SnackSlot*>>& VendingMachine::getSlots() const
+{
+    return slots;
 }

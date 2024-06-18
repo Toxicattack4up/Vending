@@ -10,6 +10,14 @@ void SnackSlot::addSnack(Snack* snack)
 	}
 }
 
+void SnackSlot::removeSnack()
+{
+	if (!snacks.empty())
+	{
+		snacks.pop_back(); //Удаление снека
+	}
+}
+
 std::string SnackSlot::getSnackName() const
 {
 	if (snacks.empty())

@@ -8,10 +8,11 @@ private:
 	std::vector<std::vector<SnackSlot*>> slots;
 
 public:
-	VendingMachine(int row, int cols);
+	VendingMachine(int row, int col);
 
-	bool addSlot(int row, int cols, SnackSlot* slot);
+	bool addSlot(int row, int col, SnackSlot* slot);
 
 	int getEmptySlotsCount() const;
 	void display();
+	const std::vector<std::vector<SnackSlot*>>& getSlots() const;
 };
